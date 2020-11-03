@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="HandheldFriendly" content="true" />
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="src/style.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Handlee&display=swap"
+      rel="stylesheet"
+    />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <div class="date-time">
+          <h1>
+            <span id="month">October<span id="year">2020</span> <br />
+            <span id="day">THURSDAY</span> <br />
+            <span id="hours">11</span>:<span id="minutes">25</span>
+          </h1>
+        </div>
+        <div class="search-city">
+          <h2>🔎</h2>
+          <form class="search" id="searchcity">
+            <input type="text" placeholder="Enter city" class="textbox" id="search-city-input"/>
+            <input type="submit" class="button" value="Go" />
+          </form>
+          <div class="current-location">
+           <button id="currentlocation-button">📍</button> 
+          </div>
+        </div>
+        <div class="location-temp">
+          <h3>
+            <span id="current-city">La Chevrolière</span> <br />
+            <span id="current-temp">18</span> 
+            <span class="units">
+              <a href="#" id="celcius-link">°C </a> |
+              <a href="#" id="farenheit-link">°F </a>
+            </span>  <br />
+            <div id="weather-description">Cloudy</div>
+            <div class="highlow">H:<span class="high">19</span>°C L:<span class="low">15</span>°C</div> 
+          </h3>
+        </div>   
+        <img
+          src="http://clipart-library.com/data_images/185142.png"
+          width="180px"
+          id="current-weather-icon"
+          alt="cloudy"
+        />
+        <div class="weather-details1">
+          <h4>
+            Sunrise at <span id="sunrise">8:16</span>am<br />
+            Sunset at <span id="sunset">7:31</span>pm<br />
+            Pressure <span id="pressure">1015</span> hPa 
+          </h4>
+        </div>
+        <div class="weather-details2">
+          <h5>
+            Wind <span id="wind">23</span> km/hr <br />
+            Humidity <span id="humidity">74%</span> <br />
+            Feels like <span id="feels-like">18</span>°C 
+          </h5>
+        </div>
+        <div class="weekly-forecast">
+          <ul>
+            <li class="day1">
+              Friday <br />
+              H:17° L:8° <br />
+              <img
+                src="http://clipart-library.com/images_k/rain-clipart-transparent/rain-clipart-transparent-10.png"
+                width="100px"
+                class="d1"
+                alt="rainy weather"
+              />
+            </li>
+            <li class="day2">
+              Saturday <br />
+              H:16° L:8° <br />
+              <img
+                src="http://clipart-library.com/image_gallery/n1591757.png"
+                width="100px"
+                class="d2"
+                alt="sunny"
+              />
+            </li>
+            <li class="day3">
+              Sunday <br />
+              H:16° L:6° <br />
+              <img
+                src="http://clipart-library.com/images/pc5od7joi.png"
+                width="100px"
+                class="d3"
+                alt="sun with clouds"
+              />
+            </li>
+            <li class="day4">
+              Monday <br />
+              H:14° L:9° <br />
+              <img
+                src="http://clipart-library.com/images_k/rain-clipart-transparent/rain-clipart-transparent-10.png"
+                width="100px"
+                class="d4"
+                alt="rainy"
+              />
+            </li>
+            <li class="day5">
+              Tuesday <br />
+              H:15° L:7° <br />
+              <img
+                src="http://clipart-library.com/images/pc5od7joi.png"
+                width="100px"
+                class="d5"
+                alt="sun with clouds"
+              />
+            </li>
+            <li class="day6">
+              Wednesday <br />
+              H:14° L:6° <br />
+              <img
+                src="http://clipart-library.com/images/pc5od7joi.png"
+                width="100px"
+                class="d6"
+                alt="sun with clouds"
+              />
+            </li>
+            <li class="day7">
+              Thursday <br />
+              H:16° L:8°
+              <img
+                src="http://clipart-library.com/images/pc5od7joi.png"
+                width="100px"
+                class="d7"
+                alt="sun with clouds"
+              />
+            </li>
+          </ul>
+          <p>Let everyday be a nice day regardless of the weather 😊!</p>
+          <footer>Coded by Mafe Roussel Berdos</footer>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>  
+  </body>
+</html>
