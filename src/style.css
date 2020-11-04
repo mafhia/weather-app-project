@@ -20,6 +20,7 @@ h3 {
   color: #ff6699;
   font-size: 25px;
   font-weight: 700;
+  text-transform: capitalize;
   position: relative;
   left: 139px;
   margin-top: 40px;

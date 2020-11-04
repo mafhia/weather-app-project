@@ -78,11 +78,9 @@ let now = new Date();
         document.querySelector("#sunrise").innerHTML = `${sunriseTime.getHours()}:${sunriseTime.getMinutes()}`;
         let sunsetTime = new Date(response.data.sys.sunset * 1000);
         document.querySelector("#sunset").innerHTML = `${sunsetTime.getHours()}:${sunsetTime.getMinutes()}`;
-        //document.querySelector("#sunrise").innerHTML = new Date (response.data.sys.sunrise * 1000);
-        //document.querySelector("#sunset").innerHTML = new Data (response.data.sys.sunset * 1000);
         document.querySelector("#pressure").innerHTML = Math.round(response.data.main.pressure);
         document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
-        document.querySelector("#weather-description").innerHTML = response.data.weather[0].main;
+        document.querySelector("#weather-description").innerHTML = response.data.weather[0].description;
       }
 
       function searchCity(city) {
