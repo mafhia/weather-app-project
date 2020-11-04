@@ -123,6 +123,10 @@ footer {
   transition: all 200ms ease-in-out;
 }
 
+#weather-description::first-letter {
+  text-transform: capitalize;
+}
+
 .day1 {
   position: relative;
   left: 20px;
