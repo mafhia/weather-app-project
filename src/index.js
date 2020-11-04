@@ -1,4 +1,4 @@
-let now = new Date();
+         let now = new Date();
          
          let date = now.getDate();
            if(date < 10) {
@@ -42,7 +42,7 @@ let now = new Date();
          let month = months[now.getMonth()];
          
          let h1 = document.querySelector("h1");
-         h1.innerHTML = `${date} ${month} ${year}<br /> ${day}<br /> ${hours}:${minutes}`;
+         h1.innerHTML = `${date} ${month} ${year}<br /> ${day}<br /> Last updated at ${hours}:${minutes}`;
 
 
       function showF(event) {
