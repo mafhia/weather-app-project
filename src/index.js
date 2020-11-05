@@ -45,31 +45,35 @@
          h1.innerHTML = `${date} ${month} ${year}<br /> ${day}<br /> Last updated at ${hours}:${minutes}`;
 
 
-      function showF(event) {
-        event.preventDefault();
-        let c = document.querySelector("#current-temp");
-        let f = c.innerHTML*1.8+32;
-        let tempF = Math.round(f);
-        c.innerHTML = tempF;
-      }
-      
-      let showFarenheit = document.querySelector("#farenheit-link");
-      showFarenheit.addEventListener("click", showF);
-
-      function showC(event) {
-        event.preventDefault();
-        let c = document.querySelector("#current-temp");
-        let tempC = Math.round((c.innerHTML-32)/1.8);
-        c.innerHTML = tempC;
-      }
-
-      let showCelcius = document.querySelector("#celcius-link");
-      showCelcius.addEventListener("click", showC);
+         function showF(event) {
+          event.preventDefault();
+          showCelcius.classList.remove("active");
+          showFarenheit.classList.add("active");
+          let c = document.querySelector("#current-temp");
+          let f = c.innerHTML*1.8+32;
+          let tempF = Math.round(f);
+          c.innerHTML = tempF;
+        }
         
+        let showFarenheit = document.querySelector("#farenheit-link");
+        showFarenheit.addEventListener("click", showF);
+  
+        function showC(event) {
+          event.preventDefault();
+          showCelcius.classList.add("active");
+          showFarenheit.classList.remove("active");
+          let c = document.querySelector("#current-temp");
+          let tempC = Math.round((c.innerHTML-32)/1.8);
+          c.innerHTML = tempC;
+        }
+  
+        let showCelcius = document.querySelector("#celcius-link");
+        showCelcius.addEventListener("click", showC);
+        
+      let celciusTemperature = null;
 
       function displayCurrentWeather(response) {
         console.log(response.data);
-        document.querySelector("#current-city").innerHTML = response.data.name;
         document.querySelector("#current-temp").innerHTML = Math.round(response.data.main.temp);
         document.querySelector("#feels-like").innerHTML = Math.round(response.data.main.feels_like);
         document.querySelector(".high").innerHTML = Math.round(response.data.main.temp_max);

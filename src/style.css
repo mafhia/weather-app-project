@@ -126,6 +126,15 @@ footer {
   text-transform: capitalize;
 }
 
+.active {
+color: #ff6699;
+cursor: default;
+}
+
+.active:hover {
+  text-decoration: none;
+}
+
 .day1 {
   position: relative;
   left: 20px;
