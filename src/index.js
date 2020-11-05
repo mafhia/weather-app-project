@@ -74,6 +74,7 @@
 
       function displayCurrentWeather(response) {
         console.log(response.data);
+        document.querySelector("#current-city").innerHTML = response.data.name;
         document.querySelector("#current-temp").innerHTML = Math.round(response.data.main.temp);
         document.querySelector("#feels-like").innerHTML = Math.round(response.data.main.feels_like);
         document.querySelector(".high").innerHTML = Math.round(response.data.main.temp_max);
