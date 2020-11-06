@@ -86,7 +86,11 @@
         document.querySelector("#pressure").innerHTML = Math.round(response.data.main.pressure);
         document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
         document.querySelector("#weather-description").innerHTML = response.data.weather[0].description;
+        let iconElement = document.querySelector("#current-weather-icon");
+        iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+        iconElement.setAttribute("alt", response.data.weather[0].description);
       }
+      
 
       function searchCity(city) {
         let apiKey = "a4bdb9d9d153eeae6046500ced913295";

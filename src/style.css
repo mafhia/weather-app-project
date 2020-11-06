@@ -8,12 +8,12 @@ h1 {
 
 h2 {
   color: #ff6699;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 700;
   display: inline;
   position: relative;
-  left: 650px;
-  top: -70px;
+  left: 645px;
+  top: -65px;
 }
 
 h3 {
@@ -21,31 +21,24 @@ h3 {
   font-size: 25px;
   font-weight: 700;
   position: relative;
-  left: 139px;
-  margin-top: 40px;
-}
-
-img {
-  display: block;
-  position: relative;
-  top: -130px;
-  left: 416px;
+  left: 105px;
+  margin-top: -20px;
 }
 
 h4 {
   color: #ff6699;
   font-size: 18px;
   position: relative;
-  top: -276px;
-  left: 668px;
+  top: -249px;
+  left: 545px;
 }
 
 h5 {
   color: #ff6699;
   font-size: 18px;
   position: relative;
-  top: -347px;
-  left: 860px;
+  top: -320px;
+  left: 730px;
 }
 
 ul {
@@ -60,16 +53,25 @@ p {
   font-size: 23px;
   text-align: center;
   position: relative;
-  top: -959px;
+  bottom: 750px;
 }
 
 footer {
   color: #ff6699;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 800;
   text-align: center;
   position: relative;
-  top: -930px;
+  bottom: 721px;
+}
+
+#current-weather-icon {
+  display: block;
+  position: relative;
+  top: -138px;
+  left: 315px;
+  max-width: 160px;
+  max-height: 160px;
 }
 
 #current-city {
@@ -101,6 +103,7 @@ footer {
 
 .textbox {
   color: #ff6699;
+  width: auto;
 }
 
 #currentlocation-button {
@@ -108,7 +111,7 @@ footer {
   border: solid 2px #ff6699;
   border-radius: 20%;
   position: relative;
-  left: 954px;
+  left: 865px;
   top: -104px;
   height: 35px;
   width: 35px;
@@ -137,8 +140,8 @@ cursor: default;
 
 .day1 {
   position: relative;
-  left: 20px;
-  top: -200px;
+  left: 49px;
+  bottom: 235px;
 }
 
 .d1 {
@@ -149,8 +152,8 @@ cursor: default;
 
 .day2 {
   position: relative;
-  left: 158px;
-  top: -354px;
+  left: 219px;
+  bottom: 385px;
 }
 
 .d2 {
@@ -161,8 +164,8 @@ cursor: default;
 
 .day3 {
   position: relative;
-  left: 313px;
-  top: -509px;
+  left: 402px;
+  bottom: 538px;
 }
 
 .d3 {
@@ -173,8 +176,8 @@ cursor: default;
 
 .day4 {
   position: relative;
-  left: 464px;
-  top: -636px;
+  left: 580px;
+  bottom: 664px;
 }
 
 .d4 {
@@ -185,37 +188,13 @@ cursor: default;
 
 .day5 {
   position: relative;
-  left: 612px;
-  top: -790px;
+  left: 740px;
+  bottom: 816px;
 }
 
 .d5 {
   position: relative;
-  left: 3px;
-  top: 25px;
-}
-
-.day6 {
-  position: relative;
-  left: 753px;
-  top: -916px;
-}
-
-.d6 {
-  position: relative;
-  left: 2px;
-  top: 25px;
-}
-
-.day7 {
-  position: relative;
-  left: 915px;
-  top: -1044px;
-}
-
-.d7 {
-  position: relative;
-  left: -6px;
+  left: -5px;
   top: 25px;
 }
 
@@ -225,8 +204,6 @@ cursor: default;
   border: 5px dotted #ff99cc;
   border-radius: 5%;
   background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
-  width: auto;
-  height: 800px;
-  max-width: 600%;
-  max-height: 600%;
+  width: 950px;
+  height: 680px;
 }
