@@ -1,20 +1,19 @@
-         let now = new Date();
+  function formatDate(timestamp) {
+    let now = new Date();
          
-         let date = now.getDate();
-           if(date < 10) {
-             date = `0${date}`;
-           }
-         let hours = now.getHours();
-           if(hours < 10) {
-             hours = `0${hours}`;
-           }
-         let minutes = now.getMinutes();
-           if(minutes < 10) {
-             minutes = `0${minutes}`;
-           }
-         let year = now.getUTCFullYear();
-         
-         let days = [
+    let date = now.getDate();
+        if(date < 10) {
+         date = `0${date}`;
+        }
+    let hours = now.getHours();
+        if(hours < 10) {
+          hours = `0${hours}`;
+        }
+    let minutes = now.getMinutes();
+        if(minutes < 10) {
+          minutes = `0${minutes}`;
+        }
+    let days = [
            "Sunday",
            "Monday",
            "Tuesday",
@@ -23,37 +22,39 @@
            "Friday",
            "Saturday"
          ];
-         let day = days[now.getDay()];
+    let day = days[now.getDay()];
 
-         let months = [
-           "January",
-           "February",
-           "March",
-           "April",
-           "May",
-           "June",
-           "July",
-           "August",
-           "September",
-           "October",
-           "November",
-           "December"
-         ];
-         let month = months[now.getMonth()];
-         
-         let h1 = document.querySelector("h1");
-         h1.innerHTML = `${date} ${month} ${year}<br /> ${day}<br /> Last updated at ${hours}:${minutes}`;
+    let year = now.getUTCFullYear();
 
+    let months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ];
+    let month = months[now.getMonth()];
 
-         function showF(event) {
-          event.preventDefault();
-          showCelcius.classList.remove("active");
-          showFarenheit.classList.add("active");
-          let c = document.querySelector("#current-temp");
-          let f = c.innerHTML*1.8+32;
-          let tempF = Math.round(f);
-          c.innerHTML = tempF;
-        }
+    return `${date} ${month} ${year}<br />${day} <br /> Last updated at ${hours}:${minutes}`;
+  }       
+        
+
+  function showF(event) {
+    event.preventDefault();
+    showCelcius.classList.remove("active");
+    showFarenheit.classList.add("active");
+    let c = document.querySelector("#current-temp");
+    let f = c.innerHTML*1.8+32;
+    let tempF = Math.round(f);
+    c.innerHTML = tempF;
+    }
         
         let showFarenheit = document.querySelector("#farenheit-link");
         showFarenheit.addEventListener("click", showF);
@@ -86,6 +87,7 @@
         document.querySelector("#pressure").innerHTML = Math.round(response.data.main.pressure);
         document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
         document.querySelector("#weather-description").innerHTML = response.data.weather[0].description;
+        document.querySelector("#date").innerHTML = formatDate(response.data.dt * 1000);
         let iconElement = document.querySelector("#current-weather-icon");
         iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
         iconElement.setAttribute("alt", response.data.weather[0].description);
