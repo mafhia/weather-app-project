@@ -122,8 +122,8 @@
         document.querySelector("#date").innerHTML = formatDate(response.data.dt * 1000);
         let iconElement = document.querySelector("#current-weather-icon");
         let code = response.data.weather[0].icon;
-            if(code === "04n") {
-              iconElement.setAttribute("src", "Images/cloudynight.gif");
+            if(code === "04d" && code === "04n") {
+              iconElement.setAttribute("src", "Images/brokenclouds.gif");
             } else if (code === "09d") {
               iconElement.setAttribute("src", "Images/rainy1.gif");
             } else if (code === "09n") {
@@ -132,6 +132,24 @@
               iconElement.setAttribute("src", "Images/dayrain.gif");
             } else if (code === "10n") {
               iconElement.setAttribute("src", "Images/nightrain.gif");
+            } else if (code === "11d" && code === "11n") {
+              iconElement.setAttribute("src", "Images/thunderstorm1.gif");
+            } else if (code === "13d" && code === "13n") {
+              iconElement.setAttribute("src", "Images/snow.gif");
+            } else if (code === "50d" && code === "50n") {
+              iconElement.setAttribute("src", "Images/mist.gif");
+            } else if (code === "03d") {
+              iconElement.setAttribute("src", "Images/cloudyday.gif");
+            } else if (code === "03n") {
+              iconElement.setAttribute("src", "Images/cloudynight.gif");
+            } else if (code === "02d") {
+              iconElement.setAttribute("src", "Images/suncloud.gif");
+            } else if (code === "02n") {
+              iconElement.setAttribute("src", "Images/suncloud.gif");
+            } else if (code === "01d") {
+              iconElement.setAttribute("src", "Images/sunny./gif");
+            } else if (code === "01n") {
+              iconElement.setAttribute("src", "Images/moon.gif");
             } else iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
               iconElement.setAttribute("alt", response.data.weather[0].description);
       }
