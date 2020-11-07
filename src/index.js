@@ -57,32 +57,27 @@
     let forecastElement = document.querySelector("#forecast");
     forecastElement.innerHTML = null;
     let forecast = null;
-
     for (let index = 0; index < 5; index++) {
       forecast = response.data.list[index];
       forecastElement.innerHTML += `
-      <li class="day1">
-          <span id="hourly forecast">
-           ${formatHours(forecast.dt * 1000)}
-          </span> 
-          <br />
-          <div class="temperatureForecast">
-          H:<strong>"${Math.round(forecast.main.temp_max)}</strong>°
-          L:<span id="lowTemp">${Math.round(forecast.main.temp_min)}</span>°
-          </div> 
-          <br />
-          <img
-            src="http://openweather.org/img/wn/${forecast.weather[0].icon}@2x.png"
-            width="100px"
-            class="d1"
-            alt="rainy weather"
-              />
-      </li>
+      <div class=“col-2" id="hourly-forecast">
+        <h6 id=“hourly”>
+         ${formatHours(forecast.dt * 1000)}
+        </h6>
+        <div id=“temperatureForecast”>
+         H:<span id="highTemp"><strong>${Math.round(forecast.main.temp_max)}</strong>°</span>
+         L:<span id=“lowTemp”>${Math.round(forecast.main.temp_min)}</span>°
+        </div> 
+        <br />
+        <img
+         src=“https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png”
+        /> 
+      </div>
       `;
     }
   }
+  // https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png
         
-
     function showF(event) {
     event.preventDefault();
     showCelcius.classList.remove("active");
@@ -126,8 +121,19 @@
         document.querySelector("#weather-description").innerHTML = response.data.weather[0].description;
         document.querySelector("#date").innerHTML = formatDate(response.data.dt * 1000);
         let iconElement = document.querySelector("#current-weather-icon");
-        iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-        iconElement.setAttribute("alt", response.data.weather[0].description);
+        let code = response.data.weather[0].icon;
+            if(code === "04n") {
+              iconElement.setAttribute("src", "Images/cloudynight.gif");
+            } else if (code === "09d") {
+              iconElement.setAttribute("src", "Images/rainy1.gif");
+            } else if (code === "09n") {
+              iconElement.setAttribute("src", "Images/nightrain.gif");
+            } else if (code === "10d") {
+              iconElement.setAttribute("src", "Images/dayrain.gif");
+            } else if (code === "10n") {
+              iconElement.setAttribute("src", "Images/nightrain.gif");
+            } else iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+              iconElement.setAttribute("alt", response.data.weather[0].description);
       }
 
       function searchCity(city) {
@@ -138,7 +144,7 @@
       
         axios.get(apiUrl).then(displayCurrentWeather);
         
-        apiUrl=`http://api.openweather.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+        apiUrl=`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
         
         axios.get(apiUrl).then(showForecast);
       }

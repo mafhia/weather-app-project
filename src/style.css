@@ -41,11 +41,8 @@ h5 {
   left: 730px;
 }
 
-ul {
-  color: #ff6699;
-  font-size: 18px;
-  font-weight: 700;
-  list-style: none;
+h6 {
+  font-size: 20px;
 }
 
 p {
@@ -53,7 +50,7 @@ p {
   font-size: 23px;
   text-align: center;
   position: relative;
-  bottom: 750px;
+  bottom: 140px;
 }
 
 footer {
@@ -62,7 +59,14 @@ footer {
   font-weight: 800;
   text-align: center;
   position: relative;
-  bottom: 721px;
+  bottom: 105px;
+}
+
+#quote {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  top: -175px;
 }
 
 #current-weather-icon {
@@ -138,65 +142,14 @@ cursor: default;
   text-decoration: none;
 }
 
-.day1 {
+#hourly-forecast {
+  color: #ff6699;
+  font-size: 15px;
+  display: inline;
   position: relative;
-  left: 49px;
-  bottom: 232px;
-}
-
-.d1 {
-  position: relative;
-  left: -12px;
-  top: 25px;
-}
-
-.day2 {
-  position: relative;
-  left: 219px;
-  bottom: 385px;
-}
-
-.d2 {
-  position: relative;
-  left: -10px;
-  top: 18px;
-}
-
-.day3 {
-  position: relative;
-  left: 402px;
-  bottom: 538px;
-}
-
-.d3 {
-  position: relative;
-  left: -6px;
-  top: 30px;
-}
-
-.day4 {
-  position: relative;
-  left: 580px;
-  bottom: 664px;
-}
-
-.d4 {
-  position: relative;
-  left: -12px;
-  top: 25px;
-}
-
-.day5 {
-  position: relative;
-  left: 740px;
-  bottom: 816px;
-}
-
-.d5 {
-  position: relative;
-  left: -5px;
-  top: 25px;
-}
+  bottom: 240px;
+  margin-left: 105px;
+ }
 
 .box {
   font-family: "Boogaloo", cursive;
