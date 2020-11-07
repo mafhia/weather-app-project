@@ -1,17 +1,9 @@
   function formatDate(timestamp) {
-    let now = new Date();
-         
+    let now = new Date(timestamp);
+    
     let date = now.getDate();
         if(date < 10) {
          date = `0${date}`;
-        }
-    let hours = now.getHours();
-        if(hours < 10) {
-          hours = `0${hours}`;
-        }
-    let minutes = now.getMinutes();
-        if(minutes < 10) {
-          minutes = `0${minutes}`;
         }
     let days = [
            "Sunday",
@@ -42,11 +34,56 @@
     ];
     let month = months[now.getMonth()];
 
-    return `${date} ${month} ${year}<br />${day} <br /> Last updated at ${hours}:${minutes}`;
-  }       
+    return `${date} ${month} ${year}<br />${day} <br /> Last updated at ${formatHours(timestamp)}`;
+  }      
+  
+  function formatHours(timestamp) {
+    let now = new Date(timestamp);
+         
+    let hours = now.getHours();
+        if(hours < 10) {
+          hours = `0${hours}`;
+        }
+    let minutes = now.getMinutes();
+        if(minutes < 10) {
+          minutes = `0${minutes}`;
+        }
+
+    return `${hours}:${minutes}`;    
+  }
+
+  function showForecast(response) {
+    console.log(response.data);
+    let forecastElement = document.querySelector("#forecast");
+    forecastElement.innerHTML = null;
+    let forecast = null;
+
+    for (let index = 0; index < 5; index++) {
+      forecast = response.data.list[index];
+      forecastElement.innerHTML += `
+      <li class="day1">
+          <span id="hourly forecast">
+           ${formatHours(forecast.dt * 1000)}
+          </span> 
+          <br />
+          <div class="temperatureForecast">
+          H:<strong>"${Math.round(forecast.main.temp_max)}</strong>°
+          L:<span id="lowTemp">${Math.round(forecast.main.temp_min)}</span>°
+          </div> 
+          <br />
+          <img
+            src="http://openweather.org/img/wn/${forecast.weather[0].icon}@2x.png"
+            width="100px"
+            class="d1"
+            alt="rainy weather"
+              />
+      </li>
+      `;
+    }
+  }
         
 
-  function showF(event) {
+    function showF(event) {
     event.preventDefault();
     showCelcius.classList.remove("active");
     showFarenheit.classList.add("active");
@@ -56,10 +93,10 @@
     c.innerHTML = tempF;
     }
         
-        let showFarenheit = document.querySelector("#farenheit-link");
+     let showFarenheit = document.querySelector("#farenheit-link");
         showFarenheit.addEventListener("click", showF);
   
-        function showC(event) {
+      function showC(event) {
           event.preventDefault();
           showCelcius.classList.add("active");
           showFarenheit.classList.remove("active");
@@ -68,13 +105,13 @@
           c.innerHTML = tempC;
         }
   
-        let showCelcius = document.querySelector("#celcius-link");
+      let showCelcius = document.querySelector("#celcius-link");
         showCelcius.addEventListener("click", showC);
         
       let celciusTemperature = null;
 
       function displayCurrentWeather(response) {
-        console.log(response.data);
+        
         document.querySelector("#current-city").innerHTML = response.data.name;
         document.querySelector("#current-temp").innerHTML = Math.round(response.data.main.temp);
         document.querySelector("#feels-like").innerHTML = Math.round(response.data.main.feels_like);
@@ -92,7 +129,6 @@
         iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
         iconElement.setAttribute("alt", response.data.weather[0].description);
       }
-      
 
       function searchCity(city) {
         let apiKey = "a4bdb9d9d153eeae6046500ced913295";
@@ -101,7 +137,13 @@
         let apiUrl = `${apiEndpoint}?q=${city}&appid=${apiKey}&units=${units}`;
       
         axios.get(apiUrl).then(displayCurrentWeather);
+        
+        apiUrl=`http://api.openweather.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+        
+        axios.get(apiUrl).then(showForecast);
       }
+
+
       function handleSubmit(event) {
         event.preventDefault();
         let city = document.querySelector("#search-city-input").value;
