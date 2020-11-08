@@ -146,7 +146,7 @@
             } else if (code === "02d") {
               iconElement.setAttribute("src", "Images/suncloud.gif");
             } else if (code === "02n") {
-              iconElement.setAttribute("src", "Images/suncloud.gif");
+              iconElement.setAttribute("src", "Images/mooncloud.gif");
             } else if (code === "01d") {
               iconElement.setAttribute("src", "Images/sunny.gif");
             } else if (code === "01n") {
