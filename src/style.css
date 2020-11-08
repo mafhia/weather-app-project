@@ -43,7 +43,7 @@ h5 {
 
 h6 {
   font-size: 20px;
-  margin-top: 4px;
+  margin-top: 14px;
 }
 
 p {
@@ -165,5 +165,5 @@ cursor: default;
   border-radius: 5%;
   background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
   width: 950px;
-  max-height: 720px;
+  height: 720px;
 }
