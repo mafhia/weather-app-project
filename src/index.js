@@ -40,11 +40,11 @@
   function formatHours(timestamp) {
     let now = new Date(timestamp);
          
-    let hours = now.getHours();
+    let hours = now.getUTCHours();
         if(hours < 10) {
           hours = `0${hours}`;
         }
-    let minutes = now.getMinutes();
+    let minutes = now.getUTCMinutes();
         if(minutes < 10) {
           minutes = `0${minutes}`;
         }
@@ -76,7 +76,6 @@
       `;
     }
   }
-  // https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png
         
     function showF(event) {
     event.preventDefault();
@@ -113,9 +112,11 @@
         document.querySelector(".high").innerHTML = Math.round(response.data.main.temp_max);
         document.querySelector(".low").innerHTML = Math.round(response.data.main.temp_min);
         let sunriseTime = new Date(response.data.sys.sunrise * 1000);
-        document.querySelector("#sunrise").innerHTML = `${sunriseTime.getHours()}:${sunriseTime.getMinutes()}`;
+        document.querySelector("#sunrise").innerHTML = formatHours((response.data.sys.sunrise + response.data.timezone) * 1000);
+        //`${sunriseTime.getUTCHours()}:${sunriseTime.getUTCMinutes()}`;
         let sunsetTime = new Date(response.data.sys.sunset * 1000);
-        document.querySelector("#sunset").innerHTML = `${sunsetTime.getHours()}:${sunsetTime.getMinutes()}`;
+        document.querySelector("#sunset").innerHTML = formatHours((response.data.sys.sunset + response.data.timezone) * 1000);
+        //`${sunsetTime.getHours()}:${sunsetTime.getMinutes()}`;
         document.querySelector("#pressure").innerHTML = Math.round(response.data.main.pressure);
         document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
         document.querySelector("#weather-description").innerHTML = response.data.weather[0].description;
