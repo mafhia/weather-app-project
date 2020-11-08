@@ -60,18 +60,18 @@
     for (let index = 0; index < 5; index++) {
       forecast = response.data.list[index];
       forecastElement.innerHTML += `
-      <div class=“col-2" id="hourly-forecast">
-        <h6 id=“hourly”>
-         ${formatHours(forecast.dt * 1000)}
+      <div class="col-2" id="hourly-forecast">
+        <h6 id="hourly">
+         <strong>${formatHours(forecast.dt * 1000)}</strong>
         </h6>
-        <div id=“temperatureForecast”>
+        <div id="temperatureForecast">
          H:<span id="highTemp"><strong>${Math.round(forecast.main.temp_max)}</strong>°</span>
-         L:<span id=“lowTemp”>${Math.round(forecast.main.temp_min)}</span>°
+         L:<span id="lowTemp">${Math.round(forecast.main.temp_min)}</span>°
         </div> 
         <br />
         <img
-         src=“https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png”
-        /> 
+         src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
+         id="forecast-icon" /> 
       </div>
       `;
     }
@@ -106,7 +106,7 @@
       let celciusTemperature = null;
 
       function displayCurrentWeather(response) {
-        
+        console.log(response.data);
         document.querySelector("#current-city").innerHTML = response.data.name;
         document.querySelector("#current-temp").innerHTML = Math.round(response.data.main.temp);
         document.querySelector("#feels-like").innerHTML = Math.round(response.data.main.feels_like);
@@ -147,7 +147,7 @@
             } else if (code === "02n") {
               iconElement.setAttribute("src", "Images/suncloud.gif");
             } else if (code === "01d") {
-              iconElement.setAttribute("src", "Images/sunny./gif");
+              iconElement.setAttribute("src", "Images/sunny.gif");
             } else if (code === "01n") {
               iconElement.setAttribute("src", "Images/moon.gif");
             } else iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);

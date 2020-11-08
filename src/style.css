@@ -21,7 +21,7 @@ h3 {
   font-size: 25px;
   font-weight: 700;
   position: relative;
-  left: 105px;
+  left: 78px;
   margin-top: -20px;
 }
 
@@ -29,20 +29,21 @@ h4 {
   color: #ff6699;
   font-size: 18px;
   position: relative;
-  top: -249px;
-  left: 545px;
+  top: -210px;
+  left: 555px;
 }
 
 h5 {
   color: #ff6699;
   font-size: 18px;
   position: relative;
-  top: -320px;
-  left: 730px;
+  top: -281px;
+  left: 735px;
 }
 
 h6 {
   font-size: 20px;
+  margin-top: 4px;
 }
 
 p {
@@ -72,7 +73,7 @@ footer {
 #current-weather-icon {
   display: block;
   position: relative;
-  top: -138px;
+  top: -105px;
   left: 335px;
   max-width: 160px;
   max-height: 160px;
@@ -147,8 +148,14 @@ cursor: default;
   font-size: 15px;
   display: inline;
   position: relative;
-  bottom: 240px;
-  margin-left: 105px;
+  left: 38px;
+  bottom: 200px;
+  margin: 0 auto;
+ }
+
+ #forecast-icon {
+   position: relative;
+   left: -22px;
  }
 
 .box {
@@ -158,5 +165,5 @@ cursor: default;
   border-radius: 5%;
   background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
   width: 950px;
-  height: 680px;
+  max-height: 720px;
 }
