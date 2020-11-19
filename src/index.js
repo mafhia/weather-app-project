@@ -190,8 +190,13 @@
         let lon = position.coords.longitude;
         let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
         console.log(apiUrl);
+        
         axios.get(apiUrl).then(displayCurrentWeather);
+
+        apiUrl=`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+        axios.get(apiUrl).then(showForecast);
       }
+
 
       function getCurrentLocation(event) {
         event.preventDefault();
